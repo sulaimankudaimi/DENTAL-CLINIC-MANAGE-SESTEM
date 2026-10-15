@@ -1,0 +1,50 @@
+appId: com.eyadati.desktop
+productName: عيادتي
+directories:
+  output: release
+  buildResources: resources
+
+files:
+  - dist/**
+  - dist-electron/**
+  - package.json
+  - "!data/**"
+  - "!tools/**"
+  - "!**/*.map"
+  - "!**/__tests__/**"
+  - "!**/*.test.ts"
+  - "!**/*.test.js"
+  - "!.env*"
+
+extraResources:
+  - from: resources/fonts
+    to: resources/fonts
+  - from: resources/templates
+    to: resources/templates
+
+asar: true
+asarUnpack:
+  - "**/better-sqlite3/**"
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: resources/icon.ico
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: عيادتي
+  installerLanguages:
+    - ar-SA
+    - en-US
+  artifactName: Eyadati-Setup-${version}.exe
+  license: resources/LICENSE_AR.txt
+
+publish:
+  provider: generic
+  url: ${env.UPDATE_URL}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عيادتي - نظام إدارة عيادات أسنان</title>
+    <meta name="description" content="عيادتي - نظام إدارة عيادات أسنان متكامل باللغة العربية يعمل كتطبيق سطح مكتب" />
+    <meta property="og:title" content="عيادتي - نظام إدارة عيادات أسنان" />
+    <meta property="og:description" content="عيادتي - نظام إدارة عيادات أسنان متكامل باللغة العربية يعمل كتطبيق سطح مكتب" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="preload" href="/fonts/tajawal-regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/tajawal-medium.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/tajawal-bold.ttf" as="font" type="font/ttf" crossorigin />
+    <script>
+      (function() {
+        try {
+          var s = localStorage.getItem('appearance_settings');
+          if (s) {
+            var a = JSON.parse(s);
+            if (a.theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
+            if (a.font_size === 'large') document.documentElement.style.fontSize = '18px';
+            else if (a.font_size === 'medium') document.documentElement.style.fontSize = '16px';
+            else document.documentElement.style.fontSize = '14px';
+            if (a.numeral_system) document.documentElement.setAttribute('data-numeral-system', a.numeral_system);
+            if (a.calendar_system) document.documentElement.setAttribute('data-calendar-system', a.calendar_system);
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-surface-app text-text font-sans antialiased selection:bg-brand-navy selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

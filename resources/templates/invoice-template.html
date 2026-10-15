@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>فاتورة ضريبية مبسطة - عيادتي</title>
+  <style>
+    body { font-family: 'Tajawal', sans-serif; direction: rtl; margin: 20px; color: #1e293b; }
+    .header { display: flex; justify-content: space-between; border-bottom: 2px solid #0284c7; padding-bottom: 15px; }
+    .clinic-title { font-size: 22px; font-weight: bold; color: #0369a1; }
+    .table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    .table th, .table td { border: 1px solid #cbd5e1; padding: 10px; text-align: right; }
+    .table th { background-color: #f0f9ff; }
+    .totals { margin-top: 20px; width: 300px; margin-right: auto; }
+    .totals div { display: flex; justify-content: space-between; padding: 5px 0; }
+    .qr-box { text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <div class="clinic-title">{{clinic_name}}</div>
+      <div>الرقم الضريبي: {{tax_number}}</div>
+      <div>العنوان: {{clinic_address}}</div>
+    </div>
+    <div style="text-align: left;">
+      <h3>فاتورة ضريبية مبسطة</h3>
+      <div>رقم الفاتورة: {{invoice_number}}</div>
+      <div>تاريخ الإصدار: {{issue_date}}</div>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>الوصف / الإجراء الطبي</th>
+        <th>السن</th>
+        <th>الكمية</th>
+        <th>سعر الوحدة</th>
+        <th>الضريبة (15%)</th>
+        <th>الإجمالي (ر.س)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{items_rows}}
+    </tbody>
+  </table>
+  <div class="totals">
+    <div><span>المجموع الفرعي:</span> <span>{{subtotal}} ر.س</span></div>
+    <div><span>ضريبة القيمة المضافة:</span> <span>{{vat_amount}} ر.س</span></div>
+    <div style="font-weight: bold; font-size: 16px; border-top: 1px solid #94a3b8; padding-top: 8px;">
+      <span>الإجمالي المستحق:</span> <span>{{total_amount}} ر.س</span>
+    </div>
+  </div>
+  <div class="qr-box">
+    <img src="{{qr_code_image}}" alt="ZATCA QR" style="width: 140px; height: 140px;" />
+    <div style="font-size: 11px; color: #64748b; margin-top: 4px;">متوافق مع اشتراطات هيئة الزكاة والضريبة والجمارك</div>
+  </div>
+</body>
+</html>

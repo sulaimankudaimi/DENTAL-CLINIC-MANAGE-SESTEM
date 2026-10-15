@@ -1,0 +1,12 @@
+export { DentalChart } from './DentalChart';
+export type { DentalChartProps } from './DentalChart';
+export { Tooth } from './components/Tooth';
+export { ToothSurface } from './components/ToothSurface';
+export { ToothPopover } from './components/ToothPopover';
+export { ChartLegend } from './components/ChartLegend';
+export { ChartToolbar } from './components/ChartToolbar';
+export { ToothTimeline } from './components/ToothTimeline';
+export * from './lib/teethData';
+export * from './lib/conditionColors';
+export * from './lib/toothPaths';
+export { useToothRecords } from './hooks/useToothRecords';
